@@ -52,6 +52,9 @@ RUN arduino-cli lib install "DHT sensor library"@1.3.8 && \
     arduino-cli lib install "Servo"@1.1.6 && \
     arduino-cli lib install "SparkFun LSM6DS3 Breakout"@1.0.0 && \
     arduino-cli lib install "Stepper"@1.1.3
+#install dinobot dependencies
+RUN arduino-cli lib install "Adafruit Motor shield V2"@1.0.9
+    arduino-cli lib install "ArduinoBlue"@3.0.1
 
 # readd when not using outdated LiquidCrystal_I2C
 #    arduino-cli lib install "LiquidCrystal I2C"@1.1.2 && \
@@ -59,6 +62,14 @@ RUN arduino-cli lib install "DHT sensor library"@1.3.8 && \
 WORKDIR /opt/ora-cc-rsc/
 
 COPY ./ ./
+
+# add dinobot dependencies not available through arduino-cli
+#RUN git archive --remote=ssh://git@bitbucket.org:teckel12/arduino-timer-free-tone.git --format=tar.gz --output="TimerFreeTone.tar.gz" master && \
+#     tar -xf TimerFreeTone.tar.gz && \
+RUN wget https://github.com/DrGFreeman/SharpDistSensor/archive/master.tar.gz && \
+    tar -xf master.tar.gz && \
+    cp -r SharpDistSensor-master/. RobotArdu/libraries/DinoLibs && \
+    rm -rf SharpDistSensor-master/ && rm master.tar.gz 
 
 # Currently released ArduinoSTL (1.1.0) does not have assignment change by VinArt, download directly from GitHub
 RUN wget https://github.com/mike-matera/ArduinoSTL/archive/7411816e2d8f49d96559dbaa47e327816dde860c.tar.gz && \
