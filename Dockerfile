@@ -53,7 +53,7 @@ RUN arduino-cli lib install "DHT sensor library"@1.3.8 && \
     arduino-cli lib install "SparkFun LSM6DS3 Breakout"@1.0.0 && \
     arduino-cli lib install "Stepper"@1.1.3
 #install dinobot dependencies
-RUN arduino-cli lib install "Adafruit Motor shield V2"@1.0.9
+RUN arduino-cli lib install "Adafruit Motor shield V2"@1.0.9 && \
     arduino-cli lib install "ArduinoBlue"@3.0.1
 
 # readd when not using outdated LiquidCrystal_I2C
