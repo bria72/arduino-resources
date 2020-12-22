@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <NEPODefs.h>
-#include <MeDrive.h>
-#include <MeMCore.h>
+#include <dinobot.h>
 
 void setup()
 {
