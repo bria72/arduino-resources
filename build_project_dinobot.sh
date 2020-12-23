@@ -27,6 +27,7 @@ avr-g++ -c -g -Os -Wall -Wextra -std=gnu++11 -fpermissive -fno-exceptions -ffunc
         -I$LIB_INCLUDE_DIR/RobertaFunctions \
         -I$LIB_INCLUDE_DIR/Makeblock \
         -I$LIB_INCLUDE_DIR/DinoLibs \
+        -I$LIB_INCLUDE_DIR/Adafruit_Motor_Shield_V2 \
         -I$LIB_INCLUDE_DIR/ArduinoSTL/src/ \
         -I$LIB_INCLUDE_DIR/$ARDUINO_ARCH/EEPROM/src \
         -I$LIB_INCLUDE_DIR/$ARDUINO_ARCH/HID/src \
