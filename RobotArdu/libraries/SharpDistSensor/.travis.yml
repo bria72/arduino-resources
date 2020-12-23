@@ -1,0 +1,27 @@
+language: python
+python:
+  - "2.7"
+
+cache:
+  directories:
+  - "~/.platformio"
+
+install:
+- pip install -U platformio
+
+env:
+- BOARD=uno
+- BOARD=leonardo
+- BOARD=micro
+- BOARD=megaatmega2560
+- BOARD=nanoatmega328new
+- BOARD=due
+- BOARD=yun
+- BOARD=genuino101
+- BOARD=zero
+
+script:
+- set -eo pipefail;
+  for e in examples/*; do
+    platformio ci --board=$BOARD --lib=. $e/*;
+  done
